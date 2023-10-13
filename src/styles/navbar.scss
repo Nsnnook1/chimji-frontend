@@ -1,0 +1,32 @@
+* {
+box-sizing: border-box;
+padding: 0;
+margin: 0;
+}
+
+.navbar {
+    background-color: #660000;
+    display: flex;
+    padding: 40px;
+    justify-content: space-between;
+}
+
+.navbar-left{
+    
+}
+
+.navbar-right{
+    display: flex;
+    gap: 30px;
+}
+
+a{
+    color: #ffff;
+    font-size: 24px;
+    text-decoration: none;
+    // gap: 20px;
+    &:hover {
+      color: rgb(216, 204, 204);
+    }
+}
+
