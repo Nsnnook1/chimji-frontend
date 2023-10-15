@@ -1,6 +1,9 @@
+import MenuItem from "../features/auth/MenuItem";
 
 export default function MenuPage() {
   return (
-    <div>MenuPage</div>
-  )
+    <div>
+      <MenuItem />
+    </div>
+  );
 }

@@ -39,7 +39,7 @@ export default function LoginForm() {
         <div className="button-login">
           <Button name="CONFIRM" />
           <Link to="/register">
-            <Button name="REGISTER" />
+            <Button name="REGISTER"  />
           </Link>
         </div>
       </form>

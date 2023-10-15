@@ -2,7 +2,7 @@ export default function InputForm({
   type = "text",
   placeholder,
   label,
-  onChange,
+  onChange
 }) {
   return (
     <div>
@@ -16,9 +16,3 @@ export default function InputForm({
     </div>
   );
 }
-
-// import "../styles/button.scss";
-
-// export default function Button({ name }) {
-//   return <button className="button">{name}</button>;
-// }

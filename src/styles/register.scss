@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h1{
+    text-align: left;
+    margin-left: 118px;
+    padding: 20px;
+}
+
+.inputForm {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin: 0px 138px 10px 138px;
+  gap: 20px;
+}
+
+.inputAddess {
+  margin: 0px 119px 10px 138px;
+}
+
+.address {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  margin: 0px 138px 40px 138px;
+  gap: 7px;
+}
+
+.register-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

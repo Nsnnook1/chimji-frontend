@@ -1,4 +1,5 @@
 import Navbar from "./Navbar";
+// import logoNav from '../assets/images/logoNav.jpg'
 import "../styles/navbar.scss";
 
 export default function Header() {
@@ -6,8 +7,7 @@ export default function Header() {
     <header>
       <div className="navbar">
           <div className="navbar-left">
-            <div className="logo"><img src="" alt="logo" /></div>
-            {/* <h1>CHIMJI</h1> */}
+            <div>Chimji<span className="sublogo"></span></div>
           </div>
 
           <div className="navbar-right">

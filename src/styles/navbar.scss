@@ -1,28 +1,46 @@
+@font-face{
+    font-family: "Chocolate";
+    src: local("Chocolate"),url("../assets/fonts/ChocolateCrispy.otf")
+    format('opentype');
+}
+
 * {
-box-sizing: border-box;
-padding: 0;
-margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 .navbar {
+    // position: fixed;
+    // top: 0;
+    // width: 100%;
     background-color: #660000;
     display: flex;
-    padding: 40px;
+    align-items: center;
     justify-content: space-between;
 }
 
 .navbar-left{
+    font-size: 80px;
+    font-family: "Chocolate", sans-serif;
+    color: #ffff;
+    margin-left: 50px;
     
+    .sublogo {
+        
+    }
 }
+
 
 .navbar-right{
     display: flex;
     gap: 30px;
+    margin-right: 50px;
 }
 
 a{
     color: #ffff;
-    font-size: 24px;
+    font-size: 20px;
     text-decoration: none;
     // gap: 20px;
     &:hover {
