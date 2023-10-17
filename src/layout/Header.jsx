@@ -1,11 +1,12 @@
-import { useRef } from 'react';
-import { Link } from "react-router-dom";
+// import { useRef } from "react";
 
 import Navbar from "./Navbar";
+import useAuth from "../hooks/use-auth";
 import "../styles/navbar.scss";
 
 export default function Header() {
-  const scrollToRef = useRef(null);
+  // const scrollToRef = useRef(null);
+  const { logout, authUser } = useAuth();
 
   return (
     <header>
@@ -20,7 +21,7 @@ export default function Header() {
           <Navbar title="Home" href="" />
           <Navbar title="Menu" href="/menu" />
           <Navbar title="Contact" />
-          <Navbar title="Login" href="/login" />
+          <Navbar title={authUser ? "Logout" : "Login" } href="/login" onClick={logout}/>
         </div>
       </div>
     </header>

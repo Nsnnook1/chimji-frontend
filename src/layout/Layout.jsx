@@ -20,13 +20,4 @@ export default function Layout() {
         <Footer />
       </>
     );
-
-  // return (
-  // <>
-  //   <Header />
-  //   <Outlet />
-  //   <Footer />
-  //   {/* outlet เปลี่ยนตาม path ทีื่ต้องการ */}
-  // </>
-  // );
 }

@@ -1,5 +1,9 @@
-import { createContext, useState } from "react";
-import { addAccessToken, removeAccessToken } from "../utils/local-storage";
+import { createContext, useState, useEffect } from "react";
+import {
+  addAccessToken,
+  getAccessToken,
+  removeAccessToken,
+} from "../utils/local-storage";
 import axios from "../config/axios";
 
 export const AuthContext = createContext(); //provider children for someone
@@ -7,22 +11,30 @@ export const AuthContext = createContext(); //provider children for someone
 export default function AuthContextProvider({ children }) {
   const [authUser, setAuthUser] = useState(null);
 
-  //   const [initialLoading, setInitialLoading] = useState(true);
+  const [initialLoading, setInitialLoading] = useState(true);
+  console.log("gum");
+  console.log("access tokenaaa", getAccessToken());
 
-  //   useEffect(() => {
-  //     if (Token()) {
-  //       axios
-  //         .get("/auth/checkAuthUser") //check token หมดอายุละยัง
-  //         .then((res) => {
-  //           setAuthUser(res.data.user); //ดึงข้อมูลของuser มาจาก data อีกที
-  //         })
-  //         // .finally(() => {
-  //         //   setInitialLoading(false);
-  //         // });
-  //     } else {
-  //       setInitialLoading(false);
-  //     }
-  //   }, []);
+  useEffect(() => {
+    console.log("logg terr");
+  });
+
+  useEffect(() => {
+    if (getAccessToken()) {
+      axios
+        .get("/auth/checkAuthUser") //check token หมดอายุละยัง
+        .then((res) => {
+          console.log("res", res);
+          setAuthUser(res.data.user); //ดึงข้อมูลของuser มาจาก data อีกที
+        })
+        .finally(() => {
+          setInitialLoading(false);
+        });
+    } else {
+      // return true;
+      setInitialLoading(false);
+    }
+  }, []);
 
   const register = async (registerObject) => {
     registerObject.role = "user";
@@ -58,6 +70,7 @@ export default function AuthContextProvider({ children }) {
         login,
         register,
         logout,
+        initialLoading,
       }}
     >
       {children}
