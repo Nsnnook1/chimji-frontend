@@ -1,8 +1,12 @@
+import "../styles/input.scss";
+
 export default function InputForm({
   type = "text",
   placeholder,
   label,
-  onChange
+  onChange,
+  hasErr,
+  message,
 }) {
   return (
     <div>
@@ -10,9 +14,15 @@ export default function InputForm({
       <input
         placeholder={placeholder}
         type={type}
-        style={{ width: "100%", padding: "8px", fontSize: "20px" }}
         onChange={onChange}
+        className={`${
+          hasErr
+            ? "border-red-500 focus:ring-red-300"
+            : "focus:ring-blue-300 focus:border-blue-500 border-gray-300"
+        }
+        `}
       />
+      <span className="text-red-500">{message}</span>
     </div>
   );
 }

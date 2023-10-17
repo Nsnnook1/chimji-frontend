@@ -17,7 +17,7 @@ export default function LoginForm() {
     });
   };
   return (
-    <header>
+    <header className="login-wrapper">
       <h1>Login</h1>
       <h4>Please Login or add an account.</h4>
 

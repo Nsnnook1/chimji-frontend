@@ -25,13 +25,22 @@ export default function AuthContextProvider({ children }) {
   //   }, []);
 
   const register = async (registerObject) => {
-    const res = await axios.post("auth/register", registerObject);
+    registerObject.role = "user";
+    const res = await axios.post("/auth/register", registerObject);
+    console.log(res.data);
+    addAccessToken(res.data.accessToken);
+    setAuthUser(res.data.user);
+  };
+
+  const registerAdmin = async (registerObject) => {
+    registerObject.role = "admin";
+    const res = await axios.post("/auth/register", registerObject);
     addAccessToken(res.data.accessToken);
     setAuthUser(res.data.user);
   };
 
   const login = async (identity) => {
-    console.log('identity', identity)
+    console.log("identity", identity);
     const res = await axios.post("auth/login", identity);
     addAccessToken(res.data.accessToken);
     setAuthUser(res.data.user);

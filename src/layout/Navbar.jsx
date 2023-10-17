@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 export default function Navbar({ title, href }) {
   return (
     <div>
-      <a href={href}>{title}</a>
+      <Link to={href}>{title}</Link>
     </div>
   );
 }
