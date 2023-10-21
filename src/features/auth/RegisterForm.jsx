@@ -69,7 +69,7 @@ export default function RegisterForm() {
   const handleRegisterSubmitForm = async (e) => {
     try {
       e.preventDefault();
-      // validateRegister(registerSchema)
+      validateRegister(registerSchema)
     await register(formData);
     } catch (error) {
       console.log(error);

@@ -1,0 +1,73 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.input-search{
+}
+
+.admin-acc-wrapper {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-acc-header {
+  display: flex;
+  justify-content: flex-start;
+  width: 90vw;
+}
+
+.admin-acc-name {
+  font-family: 'Rufina', sans-serif;
+  font-size: 50px;
+  font-style: normal;
+}
+
+.admin-acc-body {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 90vw;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: 'Ruda', sans-serif;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+}
+
+thead {
+  background-color: #F2F2F2;
+  color: #5E5873;
+}
+
+th {
+  padding: 20px;
+}
+
+th, td {
+  border: 1px solid #dddddd;
+  text-align: center;
+  border-left: none;
+  border-right: none;
+}
+
+th:first-child, td:first-child {
+  border-left: 1px solid #dddddd;
+}
+
+th:last-child, td:last-child {
+  border-right: 1px solid #dddddd;
+}
+
+td {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  color: #000000;
+  padding: 8px;
+}

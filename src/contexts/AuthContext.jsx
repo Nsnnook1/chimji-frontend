@@ -12,12 +12,7 @@ export default function AuthContextProvider({ children }) {
   const [authUser, setAuthUser] = useState(null);
 
   const [initialLoading, setInitialLoading] = useState(true);
-  console.log("gum");
   console.log("access tokenaaa", getAccessToken());
-
-  useEffect(() => {
-    console.log("logg terr");
-  });
 
   useEffect(() => {
     if (getAccessToken()) {
@@ -46,7 +41,7 @@ export default function AuthContextProvider({ children }) {
 
   const registerAdmin = async (registerObject) => {
     registerObject.role = "admin";
-    const res = await axios.post("/auth/register", registerObject);
+    const res = await axios.post("/auth/checkAuthUser", registerObject);
     addAccessToken(res.data.accessToken);
     setAuthUser(res.data.user);
   };
@@ -69,6 +64,7 @@ export default function AuthContextProvider({ children }) {
         authUser,
         login,
         register,
+        registerAdmin,
         logout,
         initialLoading,
       }}
