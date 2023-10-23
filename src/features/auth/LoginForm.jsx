@@ -9,7 +9,7 @@ export default function LoginForm() {
   const [input, setInput] = useState({ email: "", password: "" });
 
   const { login } = useAuth(); //custom hooks : call fn login via authContext.
-  console.log(input);
+  
   const handleSubmitForm = (e) => {
     e.preventDefault();
     login(input).catch((err) => {

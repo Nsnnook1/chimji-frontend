@@ -69,23 +69,8 @@ export default function Route() {
 
   const selectedChild = authUser?.role === "admin" ? adminChilds : userChilds;
 
-  console.log(selectedChild);
-
   const router = createBrowserRouter(
     selectedChild
-    // {
-    //   path: "/login",
-    //   element: (
-    //     <RedirectIfAuthenticated>
-    //       <LoginPage />
-    //     </RedirectIfAuthenticated>
-    //   ),
-    // },
-    // {
-    //   path: "/",
-    //   element: useAuth?.role === "admin" ? <LayoutAdmin /> : <Layout />,
-    //   children: selectedChild,
-    // },
   );
 
   return <RouterProvider router={router} />;

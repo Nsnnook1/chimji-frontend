@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { accountDataList } from "./componentsMenuManagement/DomainMock";
-import InputForm from "../../components/InputForm";
+// import InputForm from "../../components/InputForm";
 import useAdmin from "../../hooks/use-admin";
 
 export default function AccountManagementTable() {
@@ -12,7 +11,6 @@ export default function AccountManagementTable() {
     checkOrders()
       .then((orderData) => {
         setGetOrders(orderData.data.checkUserOrders); // อัพเดต state ด้วยข้อมูลที่ได้จาก API
-        console.log("commonnn");
       })
       .catch((error) => console.log(error));
   }, []);
@@ -21,9 +19,9 @@ export default function AccountManagementTable() {
     <div>
       <table>
         <thead>
-          <tr>
+          {/* <tr>
             <InputForm placeholder="Search" classname="input-search" />
-          </tr>
+          </tr> */}
           <tr>
             <th>ID</th>
             <th>NAME</th>

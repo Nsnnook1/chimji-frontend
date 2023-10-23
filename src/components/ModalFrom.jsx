@@ -3,14 +3,13 @@ import { toast } from "react-toastify";
 import useAdmin from "../hooks/use-admin";
 import Button from "./Button";
 import InputForm from "./InputForm";
-import axios from "axios";
+
 
 export default function ModalFrom() {
   const [input, setInput] = useState({
     name: "",
     detail: "",
     price: "",
-    picture: "",
   });
   const { addMenu } = useAdmin();
 
@@ -23,6 +22,7 @@ export default function ModalFrom() {
 
   return (
     <div>
+      <h1>Management Menu</h1>
       <form onSubmit={handleInputMenu}>
         <InputForm
           label="name"

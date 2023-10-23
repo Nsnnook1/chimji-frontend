@@ -4,6 +4,19 @@
     box-sizing: border-box;
 }
 
+.menu{
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding-right: 40px;
+}
+
+.cartIcon{
+    margin-top: 20px;
+    width: 30px;
+    height: 30px;
+}
+
 .menu-img{
     width: 450px;
     height: 500px;
