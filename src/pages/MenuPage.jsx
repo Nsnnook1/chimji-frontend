@@ -4,8 +4,7 @@ export default function MenuPage() {
   return (
     <div>
       <div className="menu">
-      <header className="menu-header">Menu</header>
-      <img src={cartIcon} className="cartIcon"/>
+        <header className="menu-header">Menu</header>
       </div>
       <MenuItem />
     </div>

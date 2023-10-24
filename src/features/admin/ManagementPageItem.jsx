@@ -2,49 +2,34 @@ import { useEffect, useState } from "react";
 import useAdmin from "../../hooks/use-admin";
 import deleteIcon from "../../assets/icons/delete.png";
 import editIcon from "../../assets/icons/edit.png";
-import UploadImg from "../../components/UploadImg";
+import Modal from "../../components/Modals";
+import ModalFrom from "../../components/ModalFrom";
+
+import "../../styles/admin/adminMenu.scss";
 
 export default function ManagementPageItem() {
   const [getMenu, setGetMenu] = useState([]);
   const [checkItemUpdate, setCheckItemUpdate] = useState(false);
-  const [editItem, setEditItem] = useState(false);
+  const [editItemId, setEditItemId] = useState(null); // Separate state for the edited item
 
   const { getAllMenu, editMenu, deleteMenu } = useAdmin();
-  // ลืมรีเทินของออกจากฟังชั่นgetAllMenu
-  // access Data ต้องถูกต้อง ดอทโนเทชั่นเข้าไปให้ถูก
-  //ถ้าไม่รู้อะไรไปต่อไม่ถูกหลงทางอะัไรใดๆก็ตามการแก้ปัญหาเบื้องต้นคือคอนโซลล็อคเหมือนหมอตำแย แพทย์พื้นบ้านพร้อมจะช่วยเหลือคุณโอเค๊ จากพี่บอย
 
   useEffect(() => {
     getAllMenu()
       .then((menuData) => {
-        setGetMenu(menuData.data.foundMenu); // อัพเดต state ด้วยข้อมูลที่ได้จาก API
+        setGetMenu(menuData.data.foundMenu);
       })
       .catch((error) => console.log(error))
-      .finally(setCheckItemUpdate(false));
-  }, [checkItemUpdate, setCheckItemUpdate, setEditItem]);
+      .finally(() => setCheckItemUpdate(false)); // Move setCheckItemUpdate inside the finally block
+  }, [checkItemUpdate]);
 
-  const handleEdit = async (e) => {
-    try {
-      await editMenu({
-        id: e.target.id,
-        name: e.target.name,
-        detail: e.targetdetail,
-        price: e.target.price,
-        picture: e.target.picture,
-      });
-
-      const updateMenu = getMenu.map((item) => {
-        return;
-      });
-    } catch (err) {
-      console.log(err);
-    }
+  const handleEdit = (itemId) => {
+    setEditItemId(itemId); // Set the ID of the item to be edited
   };
 
-  const handleDelete = async (e) => {
+  const handleDelete = async (itemId) => {
     try {
-      console.log(e.target);
-      await deleteMenu(e.target.id);
+      await deleteMenu(itemId);
       setCheckItemUpdate(true);
     } catch (err) {
       console.log(err);
@@ -73,15 +58,14 @@ export default function ManagementPageItem() {
                 <td>{menu.detail}</td>
                 <td>{menu.price}</td>
                 <td>
-                  {menu.picture}
-                  <UploadImg />
+                  <img className="menu-picture" src={menu.picture} />
                 </td>
                 <td className="action-icon">
-                  <button onClick={handleEdit}>
+                  <button onClick={() => handleEdit(menu.id)}>
                     <img id={menu.id} src={editIcon} alt="Edit" />
                   </button>
 
-                  <button onClick={handleDelete}>
+                  <button onClick={() => handleDelete(menu.id)}>
                     <img id={menu.id} src={deleteIcon} alt="Delete" />
                   </button>
                 </td>
@@ -94,6 +78,12 @@ export default function ManagementPageItem() {
           )}
         </tbody>
       </table>
+
+      {editItemId !== null && (
+        <Modal open={editItemId !== null} onClose={() => setEditItemId(null)}>
+          <ModalFrom type="edit" id={editItemId} />
+        </Modal>
+      )}
     </div>
   );
 }

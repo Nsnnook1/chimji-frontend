@@ -1,31 +1,41 @@
-*{
+* {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-.admin-menu-header-wrapper {
+.order-wrapper-card {
+  overflow: auto;
+  height: calc(100vh - 397.3px);
+}
+
+.order-wrapper {
   margin-top: 60px;
   display: flex;
   justify-content: center;
 }
 
-.admin-menu-header {
+.order-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;
   width: 90vw;
 }
 
-.admin-menu-name {
+.order-name {
   font-family: 'Rufina', sans-serif;
-  font-size: 60px;
+  font-size: 50px;
   font-style: normal;
 }
 
-.admin-menu-body {
+.order-body {
   display: flex;
   justify-content: center;
+}
+
+.order-button {
+  width: 95vw;
+  display: flex;
+  justify-content: flex-end;
 }
 
 table {

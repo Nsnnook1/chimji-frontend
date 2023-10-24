@@ -3,7 +3,7 @@ import Button from "../../components/Button";
 import ManagementPageItem from "../../features/admin/ManagementPageItem";
 import Modal from "../../components/Modals";
 
-import "../../styles/admin/admin-menu.scss";
+import "../../styles/admin/adminMenu.scss";
 import ModalFrom from "../../components/ModalFrom";
 
 export default function MenuAdmin() {

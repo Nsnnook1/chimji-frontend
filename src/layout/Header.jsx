@@ -17,7 +17,7 @@ export default function Header() {
         <div className="navbar-right">
           <Navbar title="Home" href="" />
           <Navbar title="Menu" href="/menu" />
-          <Navbar title="Contact" />
+          <Navbar title="Cart" href="/cart" />
           <Navbar
             title={authUser ? "Logout" : "Login"}
             href="/login"

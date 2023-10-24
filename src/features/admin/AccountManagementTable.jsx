@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import InputForm from "../../components/InputForm";
 import useAdmin from "../../hooks/use-admin";
 
 export default function AccountManagementTable() {
@@ -19,16 +18,13 @@ export default function AccountManagementTable() {
     <div>
       <table>
         <thead>
-          {/* <tr>
-            <InputForm placeholder="Search" classname="input-search" />
-          </tr> */}
           <tr>
             <th>ID</th>
             <th>NAME</th>
             <th>ORDER-DETAIL</th>
-            <th>PHONE</th>
+            {/* <th>PHONE</th>
             <th>ADDRESS</th>
-            <th>ACTION</th>
+            <th>ACTION</th> */}
           </tr>
         </thead>
         <tbody>
@@ -39,7 +35,6 @@ export default function AccountManagementTable() {
                 <td>{acc.quantity}</td>
                 <td>{acc.orders}</td>
                 <td>{acc.menus}</td>
-                <td>...</td>
               </tr>
             ))
           ) : (

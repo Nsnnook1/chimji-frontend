@@ -4,8 +4,12 @@ import axios from "../config/axios";
 export const AdminContext = createContext();
 
 export default function AdminContextProvider({ children }) {
-  const addMenu = async (menuDetail) => {
-    const res = await axios.post("/admin/add", menuDetail);
+  const addMenu = (menuDetail) => {
+    return axios.post("/admin/add", menuDetail);
+  };
+
+  const addToCart = (orderDetail) => {
+    return axios.post("/user/cart", orderDetail);
   };
 
   const getAllMenu = async () => {
@@ -18,20 +22,24 @@ export default function AdminContextProvider({ children }) {
     return res;
   };
 
-  const editMenu = async () => {
-    const res = await axios.put("/admin/editMenu");
-    return res;
+  const editMenu = async (body, id) => {
+    return await axios.put(`/admin/editMenu/${id}`, body);
   };
 
   const deleteMenu = async (id) => {
-    console.log(id);
-    const res = await axios.delete(`/admin/deleteMenu/${id}`);
-    return res;
+    return await axios.delete(`/admin/deleteMenu/${id}`);
   };
 
   return (
     <AdminContext.Provider
-      value={{ addMenu, getAllMenu, checkOrders, editMenu, deleteMenu }}
+      value={{
+        addMenu,
+        getAllMenu,
+        checkOrders,
+        editMenu,
+        deleteMenu,
+        addToCart,
+      }}
     >
       {children}
     </AdminContext.Provider>

@@ -5,7 +5,6 @@ import InputForm from "./InputForm";
 export default function Modal({
   title,
   children,
-  // maxWidth = 27,
   open,
   onClose,
 }) {

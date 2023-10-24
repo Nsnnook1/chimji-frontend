@@ -4,25 +4,26 @@
   margin: 0;
 }
 
-.admin-acc-wrapper {
+.admin-menu-header-wrapper {
   margin-top: 60px;
   display: flex;
   justify-content: center;
 }
 
-.admin-acc-header {
+.admin-menu-header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
   width: 90vw;
 }
 
-.admin-acc-name {
+.admin-menu-name {
   font-family: 'Rufina', sans-serif;
-  font-size: 50px;
+  font-size: 60px;
   font-style: normal;
 }
 
-.admin-acc-body {
+.admin-menu-body {
   display: flex;
   justify-content: center;
 }
@@ -68,4 +69,8 @@ td {
   line-height: 40px;
   color: #000000;
   padding: 8px;
+}
+
+.menu-picture{
+  width: 100px;
 }

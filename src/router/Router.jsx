@@ -12,10 +12,12 @@ import Layout from "../layout/Layout";
 import HomePage from "../pages/HomePage";
 import MenuPage from "../pages/MenuPage";
 import LoginPage from "../pages/LoginPage";
+import PaymentPage from "../pages/PaymentPage";
 import RegisterPage from "../pages/RegisterPage";
 import MenuAdmin from "../pages/admin/MenuAdmin";
 import ManagementPage from "../pages/admin/ManagementAdmin";
 import LayoutAdmin from "../layout/admin/LayoutAdmin";
+import CartPage from "../pages/CartPage";
 
 export default function Route() {
   const { authUser } = useAuth();
@@ -27,6 +29,8 @@ export default function Route() {
       children: [
         { path: "", element: <HomePage /> },
         { path: "/menu", element: <MenuPage /> },
+        { path: "/cart", element: <CartPage /> },
+        { path: "/payment", element: <PaymentPage /> },
         {
           path: "/login",
           element: (
@@ -69,9 +73,7 @@ export default function Route() {
 
   const selectedChild = authUser?.role === "admin" ? adminChilds : userChilds;
 
-  const router = createBrowserRouter(
-    selectedChild
-  );
+  const router = createBrowserRouter(selectedChild);
 
   return <RouterProvider router={router} />;
 }
