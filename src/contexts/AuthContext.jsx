@@ -12,13 +12,12 @@ export default function AuthContextProvider({ children }) {
   const [authUser, setAuthUser] = useState(null);
 
   const [initialLoading, setInitialLoading] = useState(true);
- 
+
   useEffect(() => {
     if (getAccessToken()) {
       axios
         .get("/auth/checkAuthUser") //check token หมดอายุละยัง
         .then((res) => {
-        
           setAuthUser(res.data.user); //ดึงข้อมูลของuser มาจาก data อีกที
         })
         .finally(() => {
@@ -46,7 +45,6 @@ export default function AuthContextProvider({ children }) {
   };
 
   const login = async (identity) => {
-
     const res = await axios.post("auth/login", identity);
     addAccessToken(res.data.accessToken);
     setAuthUser(res.data.user);

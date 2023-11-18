@@ -18,6 +18,7 @@ export default function MenuItem() {
     console.log("hahaha");
     // console.log(menu.id);
     const targetMenu = getMenu.find((x) => x.id === id); //body เอาไปใส่ใน addToCart menu
+    console.log(targetMenu);
     addToCart(targetMenu);
   };
 
@@ -30,21 +31,17 @@ export default function MenuItem() {
   }, []);
 
   return (
-    <div className="container">
+    <div className='container'>
       {getMenu.map((menu, id) => (
-        <div key={id} className="box">
-          <img
-            className="menu-img"
-            src={menu.picture}
-            alt={menu.name}
-          />
-          <div className="menu-detail-wrapper">
-            <div className="textBox">
+        <div key={id} className='box'>
+          <img className='menu-img' src={menu.picture} alt={menu.name} />
+          <div className='menu-detail-wrapper'>
+            <div className='textBox'>
               <h1>{menu.name}</h1>
-              <div className="menu-border" />
-              <p className="price">{menu.price} Baht.</p>
+              <div className='menu-border' />
+              <p className='price'>{menu.price} Baht.</p>
               <Button
-                name="Add"
+                name='Add'
                 onClick={() => {
                   handleAddToCart(menu.id);
                 }}
