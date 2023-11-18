@@ -8,7 +8,6 @@ export default function UserContaxtProvider({ children }) {
   //! setCartItem
   const [cartItem, setCartItem] = useState([]);
   const [checkUpdateCart, setCheckUpdateCart] = useState(false);
-  const [] = useState([]);
 
   const getCart = async (id) => {
     const res = await axios.get(`/user/getCart/${id}`);
