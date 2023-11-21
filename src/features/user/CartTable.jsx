@@ -38,7 +38,6 @@ export default function CartTable() {
                 <td>{cart.id}</td>
                 <td>{cart.name}</td>
                 <td>{cart.price}</td>
-                <td>{cart.price}</td>
                 <td>
                   <button
                     id={cart.id}
@@ -56,6 +55,7 @@ export default function CartTable() {
                     +
                   </button>
                 </td>
+                <td>{cart.price * cart.quantity}</td>
                 <td className="action-icon">
                   <button onClick={handleDelete}>
                     <img id={cart.id} src={deleteIcon} alt="Delete" />
