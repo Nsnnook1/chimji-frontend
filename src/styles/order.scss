@@ -4,9 +4,13 @@
   margin: 0;
 }
 
-// .order-wrapper-card {
-//   height: calc(100vh - 397.3px);
-// }
+.total-price{
+display: flex;
+justify-items: end;
+justify-content: end;
+padding: 20px;
+margin-right: 5%;
+}
 
 .order-wrapper {
   margin-top: 60px;

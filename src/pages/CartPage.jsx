@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import CartTable from "../features/user/CartTable";
 import Button from "../components/Button";
 import useAuth from "../hooks/use-auth";
@@ -8,8 +8,11 @@ import "../styles/order.scss";
 
 export default function OrderPage() {
   const { authUser } = useAuth();
-  const { getCart, checkUpdateCart, setCheckUpdateCart } = useUser();
-  
+  const { getCart, checkUpdateCart, setCheckUpdateCart, cartItem } = useUser();
+
+  let sum = 0;
+  cartItem.map((x) => (sum += x.quantity * x.price));
+
   useEffect(() => {
     getCart();
     setCheckUpdateCart(false);
@@ -26,8 +29,11 @@ export default function OrderPage() {
         <CartTable />
       </div>
       <br />
+      <div className="total-price">
+        <p>Total : {sum}</p>
+      </div>
       <div className="order-button">
-        <Link to="/payment">
+        <Link to="/payment" state={{ sum }}>
           <Button className="button-add" name="Confirm" />
         </Link>
       </div>

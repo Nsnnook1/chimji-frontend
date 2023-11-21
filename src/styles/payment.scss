@@ -3,12 +3,11 @@
   padding: 0;
   margin: 0;
 }
-
-.payment-wrapper-card {
-  // overflow: auto;
-  // padding: 20px;
-  // height: calc(100vh - 397.3px);
-  // margin-top: 40px 0px 40px 0px;
+.box-payment{
+display: flex;
+justify-content: space-between;
+padding-left:  18%;
+margin-inline: 20%;
 }
 
 h1{
@@ -32,10 +31,9 @@ h1{
 }
 
 .payment-button {
-  width: 90vw;
   display: flex;
-  justify-content: flex-end;
-  margin-top: 40px;
+  align-items: center;
+  margin-top: 30px;
 }
 
 .payment-input-wrapper {
