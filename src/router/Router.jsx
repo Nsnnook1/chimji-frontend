@@ -39,7 +39,14 @@ export default function Route() {
             </RedirectIfAuthenticated>
           ),
         },
-        { path: "/register", element: <RegisterPage /> },
+        {
+          path: "/register",
+          element: (
+            <RedirectIfAuthenticated>
+              <RegisterPage />
+            </RedirectIfAuthenticated>
+          ),
+        },
       ],
     },
     {

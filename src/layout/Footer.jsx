@@ -7,7 +7,7 @@ import "../styles/footer.scss";
 export default function Footer() {
   return (
     <div className="footer">
-      <div className="footer-detail">
+      {/* <div className="footer-detail">
         <div className="footer-vertical">
           <h2 style={{ marginBottom: "5px"}}>CHIMJI.</h2>
           <h2>BKK</h2>
@@ -24,11 +24,11 @@ export default function Footer() {
           src={map}
           alt="map"
         />
-      </div>
-      <div className="footer-border" />
+      </div> */}
+      {/* <div className="footer-border" /> */}
       <div className="footer-bottom">
-        <p>© 2020 Zero Inc. All rights Reserved</p>
-        <div className="footer-icon-group">
+        <p>© chimji.bkk</p>
+        {/* <div className="footer-icon-group">
           <img
             className="footer-icon"
             src={ig}
@@ -44,7 +44,7 @@ export default function Footer() {
             src={line}
             alt="line"
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -30,12 +30,13 @@ button{
 }
 
 .menu-img {
-    width: 450px;
-    height: 500px;
+    width: 400px;
+    height: 450px;
+    border-radius: 10px;
 }
 
 .menu-header {
-    font-size: 70px;
+    font-size: 50px;
     padding-top: 30px;
     margin-left: 70px;
 }
@@ -44,27 +45,10 @@ button{
     display: grid;
     grid-template-columns: auto auto auto;
     justify-content: center;
-    // min-height: 100vh;
     margin: 40px;
-    grid-gap: 70px;
+    grid-gap: 100px;
     justify-items: center;
 }
-
-.menu-border {
-    // width: 100%;
-	// border: 1px dashed #FFFFFF;
-    // margin-bottom: 20px;
-}
-
-.menu-detail-wrapper {
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-}
-
-// .textBox {
-//     width: 90%;
-// }
 
 .menu-border {
 	border: 1px dashed #000000;

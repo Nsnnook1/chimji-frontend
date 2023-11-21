@@ -1,22 +1,21 @@
+import { useState } from "react";
 import deleteIcon from "../../assets/icons/delete.png";
 import useUser from "../../hooks/use-user";
 // import useUser from "../../hooks/use-user";
 
 export default function CartTable() {
-  // const [getOrder, setGetOrder] = useState([]);
-  // const [checkOrderUpdate, setCheckOrderUpdate] = useState(false);
-  // const { getCart } = useUser();
-  const { cartItem, incQuantity, descQuantity } = useUser();
+  const [checkOrderUpdate, setCheckOrderUpdate] = useState(false);
+  const { cartItem, incQuantity, descQuantity, deleteCart } = useUser();
 
-  // const handleDelete = async (e) => {
-  //   try {
-  //     await deleteMenu(e.target.id);
-  //     setCheckOrderUpdate(true);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-  console.log(cartItem);
+  const handleDelete = async (e) => {
+    try {
+      await deleteCart(e.target.id);
+      setCheckOrderUpdate(true);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div>
       <table>
@@ -28,6 +27,7 @@ export default function CartTable() {
             <th>REMOVE</th>
             <th>QUANTITY</th>
             <th>ADD</th>
+            <th>TOTAL PRICE</th>
             <th>ACTION</th>
           </tr>
         </thead>
@@ -37,6 +37,7 @@ export default function CartTable() {
               <tr key={cart.id}>
                 <td>{cart.id}</td>
                 <td>{cart.name}</td>
+                <td>{cart.price}</td>
                 <td>{cart.price}</td>
                 <td>
                   <button
@@ -55,16 +56,16 @@ export default function CartTable() {
                     +
                   </button>
                 </td>
-                <td className='action-icon'>
-                  <button>
-                    <img id={cart.id} src={deleteIcon} alt='Delete' />
+                <td className="action-icon">
+                  <button onClick={handleDelete}>
+                    <img id={cart.id} src={deleteIcon} alt="Delete" />
                   </button>
                 </td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan='5'>No Orders</td>
+              <td colSpan="5">No Orders</td>
             </tr>
           )}
         </tbody>

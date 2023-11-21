@@ -5,9 +5,13 @@
 }
 
 .register-header{
-  padding: 20px;
+  padding-top: 20px;
+
 }
 
+input{
+  font-size: 20px;
+}
 .inputForm {
   display: grid;
   grid-template-columns: 50% 50%;

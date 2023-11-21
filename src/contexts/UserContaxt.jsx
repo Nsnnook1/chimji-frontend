@@ -1,6 +1,6 @@
 import { createContext } from "react";
-import axios from "../config/axios";
 import { useState } from "react";
+import axios from "../config/axios";
 
 export const UserContext = createContext();
 
@@ -9,41 +9,39 @@ export default function UserContaxtProvider({ children }) {
   const [cartItem, setCartItem] = useState([]);
   const [checkUpdateCart, setCheckUpdateCart] = useState(false);
 
-  const getCart = async (id) => {
-    const res = await axios.get(`/user/getCart/${id}`);
+  const getCart = async () => {
+    const res = await axios.get(`/user/getCart`);
     setCartItem(res.data.cart);
   };
 
+  const createOrders = (body) => {
+    return axios.post(`/user/createOrders`, body);
+  };
+
   const addToCart = (orderDetail) => {
-    console.log(orderDetail);
     return axios.post("/user/cart", orderDetail);
   };
 
   const deleteCart = async (id) => {
-    return await axios.delete(`/user/deleteCart/${id}`);
+    await axios.delete(`/user/deleteCart/${id}`);
+    setCheckUpdateCart(true);
   };
 
   //! inc & desc Quantity
   const incQuantity = async (id) => {
-    console.log(id);
     await axios.post(`/user/incQuantity/${id}`);
     setCheckUpdateCart(true);
   };
   const descQuantity = async (id) => {
-    console.log(id);
     await axios.post(`/user/descQuantity/${id}`);
     setCheckUpdateCart(true);
   };
-
-  // const checkOrders = async () => {
-  //   const res = await axios.get("user/orders");
-  //   return res;
-  // };
 
   return (
     <UserContext.Provider
       value={{
         getCart,
+        createOrders,
         addToCart,
         deleteCart,
         cartItem,

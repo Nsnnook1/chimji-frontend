@@ -22,9 +22,7 @@
 }
 
 .order-name {
-  font-family: 'Rufina', sans-serif;
   font-size: 50px;
-  font-style: normal;
 }
 
 .order-body {
@@ -33,6 +31,7 @@
 }
 
 .order-button {
+  font-size: 20px;
   width: 95vw;
   display: flex;
   justify-content: flex-end;
@@ -58,6 +57,7 @@ th {
 }
 
 th, td {
+  font-size: 20px;
   border: 1px solid #dddddd;
   text-align: center;
   border-left: none;
@@ -73,10 +73,15 @@ th:last-child, td:last-child {
 }
 
 td {
-  font-size: 16px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: 40px;
   color: #000000;
+  padding: 8px;
+}
+
+button{
+  font-size: 20px;
   padding: 8px;
 }

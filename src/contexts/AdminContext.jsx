@@ -17,6 +17,10 @@ export default function AdminContextProvider({ children }) {
     return res;
   };
 
+  const getOrdersDetail = async () => {
+    return await axios.get("/admin/getOrdersDetail");
+  };
+
   const checkOrders = async () => {
     const res = await axios.get("/admin/orders");
     return res;
@@ -33,6 +37,7 @@ export default function AdminContextProvider({ children }) {
   return (
     <AdminContext.Provider
       value={{
+        getOrdersDetail,
         addMenu,
         getAllMenu,
         checkOrders,

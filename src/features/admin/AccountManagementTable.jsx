@@ -1,19 +1,17 @@
 import { useEffect, useState } from "react";
 import useAdmin from "../../hooks/use-admin";
+import "../../styles/admin/management.scss";
 
 export default function AccountManagementTable() {
   const [getOrders, setGetOrders] = useState([]);
-
-  const { checkOrders } = useAdmin();
+  const { getOrdersDetail } = useAdmin();
 
   useEffect(() => {
-    checkOrders()
-      .then((orderData) => {
-        setGetOrders(orderData.data.checkUserOrders); // อัพเดต state ด้วยข้อมูลที่ได้จาก API
-      })
-      .catch((error) => console.log(error));
+    getOrdersDetail().then((res) => {
+      setGetOrders(res.data.orderDetails);
+      console.log(res.data);
+    });
   }, []);
-
   return (
     <div>
       <table>
@@ -22,9 +20,7 @@ export default function AccountManagementTable() {
             <th>ID</th>
             <th>NAME</th>
             <th>ORDER-DETAIL</th>
-            {/* <th>PHONE</th>
-            <th>ADDRESS</th>
-            <th>ACTION</th> */}
+            <th>PAYMENT</th>
           </tr>
         </thead>
         <tbody>
@@ -33,8 +29,10 @@ export default function AccountManagementTable() {
               <tr key={acc.id}>
                 <td>{acc.id}</td>
                 <td>{acc.quantity}</td>
-                <td>{acc.orders}</td>
-                <td>{acc.menus}</td>
+                <td>{acc.menu.name}</td>
+                <td>
+                  <img src={acc.orders.payment} className="payment-styles" />
+                </td>
               </tr>
             ))
           ) : (

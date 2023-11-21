@@ -34,8 +34,7 @@ export default function ModalFrom({ type, id }) {
         console.log(err);
       });
     }
-
-    // window.location.reload();
+    window.location.reload();
   };
 
   return (
