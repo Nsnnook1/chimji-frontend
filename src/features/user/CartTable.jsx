@@ -5,7 +5,7 @@ import useUser from "../../hooks/use-user";
 export default function CartTable() {
   const [checkOrderUpdate, setCheckOrderUpdate] = useState(false);
   const { cartItem, incQuantity, descQuantity, deleteCart } = useUser();
-  console.log(cartItem, "sdkfjkls");
+
   const handleDelete = async (e) => {
     try {
       await deleteCart(e.target.id);

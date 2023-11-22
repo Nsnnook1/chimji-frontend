@@ -26,7 +26,7 @@ export default function AdminContextProvider({ children }) {
     return res;
   };
 
-  const editMenu = async (body, id) => {
+  const editMenu = async (id, body) => {
     return await axios.put(`/admin/editMenu/${id}`, body);
   };
 

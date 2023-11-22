@@ -4,18 +4,17 @@ import Button from "./Button";
 import InputForm from "./InputForm";
 import "../styles/admin/adminMenu.scss";
 
-export default function ModalFrom({ type, id }) {
+export default function ModalFrom({ type, id, setGetMenu, getMenu }) {
   const [input, setInput] = useState({
     name: "",
     detail: "",
     price: "",
     picture: null,
   });
-  console.log("ID AT THAT MODAL", id);
 
   const { addMenu, editMenu } = useAdmin();
 
-  const handleInputMenu = (e) => {
+  const handleInputForm = (e) => {
     e.preventDefault();
 
     const formData = new FormData();
@@ -26,21 +25,24 @@ export default function ModalFrom({ type, id }) {
     formData.append("price", input.price);
 
     if (type === "edit") {
-      editMenu(formData, id).catch((err) => {
-        console.log(err);
+      editMenu(id, formData).then((res) => {
+        const newMenu = getMenu.map((x) =>
+          x.id === res.data.updatedMenu.id ? res.data.updatedMenu : x
+        );
+        setGetMenu(newMenu);
+        window.location.reload();
       });
     } else {
-      addMenu(formData).catch((err) => {
-        console.log(err);
+      addMenu(formData).then((res) => {
+        window.location.reload();
       });
     }
-    window.location.reload();
   };
 
   return (
     <div>
       <h1>Management Menu</h1>
-      <form onSubmit={handleInputMenu}>
+      <form onSubmit={handleInputForm}>
         <InputForm
           label="name"
           placeholder="name"

@@ -10,7 +10,7 @@ import "../styles/payment.scss";
 export default function PaymentPage() {
   const { state } = useLocation();
 
-  const { createOrders } = useUser();
+  const { createOrders, setCheckUpdateCart } = useUser();
 
   const [picture, setPicture] = useState(null);
 
@@ -18,6 +18,7 @@ export default function PaymentPage() {
     const formData = new FormData();
     formData.append("picture", picture);
     formData.append("totalPrice", state.sum);
+    setCheckUpdateCart(true);
     createOrders(formData);
   };
 

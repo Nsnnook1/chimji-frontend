@@ -4,7 +4,6 @@ import deleteIcon from "../../assets/icons/delete.png";
 import editIcon from "../../assets/icons/edit.png";
 import Modal from "../../components/Modals";
 import ModalFrom from "../../components/ModalFrom";
-
 import "../../styles/admin/adminMenu.scss";
 
 export default function ManagementPageItem() {
@@ -81,7 +80,12 @@ export default function ManagementPageItem() {
 
       {editItemId !== null && (
         <Modal open={editItemId !== null} onClose={() => setEditItemId(null)}>
-          <ModalFrom type="edit" id={editItemId} />
+          <ModalFrom
+            type="edit"
+            id={editItemId}
+            setGetMenu={setGetMenu}
+            getMenu={getMenu}
+          />
         </Modal>
       )}
     </div>
